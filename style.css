@@ -1,128 +1,323 @@
+/* Importar fuente divertida */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* Variables de colores vibrantes */
+:root {
+    --sunkist-orange: #F85A3E;
+    --sunshine-yellow: #FFD166;
+    --tropical-teal: #06D6A0;
+    --ocean-blue: #118AB2;
+    --sunset-purple: #8338EC;
+    --flamingo-pink: #FF6B6B;
+    --paradise-green: #2EC4B6;
+    --sand-beige: #FDF0D5;
+    --deep-sea: #073B4C;
+}
+
 /* Estilos generales */
 body {
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    background: linear-gradient(135deg, #FFE5D9 0%, #E0F2E9 100%);
     min-height: 100vh;
-    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    color: #2d4059;
 }
 
-.contenedor {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+/* TOP BAR - Barra superior colorida */
+.top-bar {
+    background: linear-gradient(90deg, var(--deep-sea) 0%, var(--ocean-blue) 100%);
+    color: white;
+    font-size: 0.9rem;
 }
 
-/* Estilos para las tarjetas (artículos) */
-.post {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: none;
-    border-radius: 15px;
+.top-bar a {
+    color: white;
+    margin-left: 15px;
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.top-bar a:hover {
+    transform: translateY(-2px);
+    color: var(--sunshine-yellow);
+}
+
+.contact-info i {
+    margin-right: 5px;
+    color: var(--sunshine-yellow);
+}
+
+/* NAVBAR PRINCIPAL */
+.navbar {
+    background: linear-gradient(120deg, var(--sunkist-orange) 0%, var(--flamingo-pink) 50%, var(--sunset-purple) 100%);
+    padding: 1rem 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.navbar-brand {
+    font-weight: 800;
+    font-size: 1.8rem;
+    color: white !important;
+    text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
+}
+
+.navbar-brand i {
+    color: var(--sunshine-yellow);
+    margin-right: 10px;
+}
+
+.nav-link {
+    color: white !important;
+    font-weight: 500;
+    margin: 0 10px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.nav-link i {
+    margin-right: 5px;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background: var(--sunshine-yellow);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 80%;
+}
+
+.nav-link:hover {
+    transform: translateY(-2px);
+}
+
+/* HERO SECTION */
+.hero-section {
+    background: linear-gradient(135deg, var(--tropical-teal) 0%, var(--ocean-blue) 50%, var(--sunset-purple) 100%);
+    padding: 4rem 2rem;
+    color: white;
+    position: relative;
     overflow: hidden;
-    height: 100%;
-    background-color: #ffffff;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
 }
 
-.post:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+.hero-section::before {
+    content: "✈️";
+    font-size: 15rem;
+    position: absolute;
+    right: -50px;
+    bottom: -50px;
+    opacity: 0.1;
+    transform: rotate(-15deg);
 }
 
-/* Corrección del tamaño de imágenes - todas uniformes */
-.card-img-top {
-    height: 220px; /* Altura fija para todas las imágenes */
-    width: 100%;
-    object-fit: cover; /* Mantiene la proporción sin deformar */
-    object-position: center; /* Centra la parte más importante de la imagen */
-    border-bottom: 3px solid #f8f9fa;
+.hero-section h1 {
+    animation: fadeInDown 1s ease;
+    text-shadow: 3px 3px 0 rgba(0,0,0,0.1);
 }
 
-/* Tipografía y colores */
-h2 {
-    color: #2c3e50;
+.hero-section .btn-warning {
+    background-color: var(--sunshine-yellow);
+    border: none;
+    color: var(--deep-sea);
     font-weight: 600;
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.hero-section .btn-warning:hover {
+    transform: scale(1.05);
+    background-color: #FFE074;
+    box-shadow: 0 5px 15px rgba(255, 209, 102, 0.4);
+}
+
+.hero-section .btn-outline-light:hover {
+    background-color: white;
+    color: var(--deep-sea);
+    transform: scale(1.05);
+}
+
+/* TÍTULO DE SECCIÓN */
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: linear-gradient(120deg, var(--sunkist-orange), var(--sunset-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+}
+
+/* TARJETAS - Colores vibrantes por destino */
+.post {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: none;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+/* Efecto hover con gradiente */
+.post:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+/* Bordes de colores diferentes para cada destino */
+.post:nth-child(1) .card-img-top {
+    border-bottom: 5px solid var(--flamingo-pink);
+}
+
+.post:nth-child(2) .card-img-top {
+    border-bottom: 5px solid var(--sunset-purple);
+}
+
+.post:nth-child(3) .card-img-top {
+    border-bottom: 5px solid var(--tropical-teal);
+}
+
+.card-img-top {
+    height: 220px;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.6s ease;
+}
+
+.post:hover .card-img-top {
+    transform: scale(1.05);
+}
+
+.card-body {
+    padding: 1.8rem 1.5rem;
+}
+
+h3 {
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    background: linear-gradient(120deg, var(--deep-sea), var(--ocean-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .fecha {
-    color: #7f8c8d;
+    color: #5a6b7a;
     font-size: 0.85rem;
     font-weight: 500;
     margin-bottom: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+}
+
+.fecha i {
+    color: var(--flamingo-pink);
+    margin-right: 5px;
 }
 
 .card-text {
     line-height: 1.7;
-    color: #34495e;
-    margin-bottom: 1rem;
+    color: #2d4059;
 }
 
-/* Estilo para los botones */
-.btn-outline-primary {
-    border-radius: 30px;
-    padding: 0.5rem 1.8rem;
-    border-width: 2px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-}
-
-.btn-outline-primary:hover {
-    background-color: #0d6efd;
+/* Botón vibrante personalizado */
+.btn-vibrant {
+    background: linear-gradient(45deg, var(--sunkist-orange), var(--flamingo-pink));
     color: white;
-    transform: scale(1.05);
+    border: none;
+    border-radius: 50px;
+    padding: 0.6rem 1.8rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(248, 90, 62, 0.3);
 }
 
-/* Ajustes para el contenido de las tarjetas */
-.card-body {
-    padding: 1.5rem;
+.btn-vibrant:hover {
+    background: linear-gradient(45deg, var(--flamingo-pink), var(--sunset-purple));
+    transform: translateX(5px);
+    box-shadow: 0 6px 20px rgba(248, 90, 62, 0.4);
+    color: white;
 }
 
-/* Espaciado entre párrafos dentro de la misma tarjeta */
-.card-text + .card-text {
-    margin-top: 0.5rem;
+.btn-vibrant i {
+    transition: transform 0.3s ease;
+    margin-right: 5px;
 }
 
-/* Estilo para el título principal */
-.display-4 {
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
+.btn-vibrant:hover i {
+    transform: translateX(5px);
 }
 
-/* Responsive: imágenes un poco más pequeñas en móviles */
+/* CTA SECTION */
+.cta-section {
+    background: linear-gradient(135deg, var(--sunshine-yellow) 0%, var(--tropical-teal) 100%);
+    color: var(--deep-sea);
+    box-shadow: 0 10px 30px rgba(6, 214, 160, 0.3);
+}
+
+.cta-section .btn-warning {
+    background-color: var(--sunkist-orange);
+    border: none;
+    color: white;
+    font-weight: 600;
+}
+
+.cta-section .btn-warning:hover {
+    background-color: #f76b4e;
+    transform: scale(1.02);
+}
+
+/* FOOTER */
+footer {
+    background: linear-gradient(90deg, var(--deep-sea), var(--ocean-blue));
+    color: white;
+}
+
+footer p {
+    opacity: 0.9;
+}
+
+/* RESPONSIVE */
 @media (max-width: 768px) {
     .card-img-top {
         height: 200px;
     }
     
-    .contenedor {
-        padding-top: 1rem;
-        padding-bottom: 1rem;
+    .hero-section {
+        padding: 3rem 1rem;
     }
     
-    h2 {
-        font-size: 1.3rem;
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
     }
 }
 
-/* Pequeño detalle decorativo para las tarjetas */
-.post {
-    position: relative;
+/* ANIMACIONES */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.post::after {
-    content: '';
+/* Efecto de ondas en el header (opcional) */
+.wave {
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #0d6efd, #6f42c1, #d63384);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.post:hover::after {
-    opacity: 1;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
 }
